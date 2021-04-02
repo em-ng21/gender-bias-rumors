@@ -1,7 +1,7 @@
 # This file takes "EJR0_raw_text.csv" & splits the concatenated text into (1) poster ID and (2) post itself
 
 # directory
-dir_raw="/Users/alicehwu/Documents/Alice/Research/EJR_project/EJR_2018/data/raw/"
+dir_raw="./dataverse/data/raw/" # adjust path as needed
 
 # load data
 EJR0=read.csv(paste0(dir_raw,"EJR0_raw_text.csv"))
