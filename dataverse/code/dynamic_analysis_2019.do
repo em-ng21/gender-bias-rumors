@@ -2,7 +2,7 @@ clear
 set more off
 capture log close
 
-local dir_data="../data/"
+local dir_data="../data/"  // please change directories of data and output accordingly
 local dir_output="../results_dynamic/"
 
 use "`dir_data'full_sample2019_stata_final.dta"
@@ -125,7 +125,7 @@ replace transition=9  if p_acad_dummy==0 & person_dummy==0  & p_acad_dummy_lag==
 * by length 
 preserve
 keep if month_first>=3
-log using "/accounts/grad/haowen.wu/Documents/EJR-revise/dynamic/AME-by-length.log",replace 
+log using "`dir_output`AME-by-length.log",replace 
 mlogit transition ib(2).female_lag ib(2).female_lag##ib(2).title_female ib(2).female_lag##ib(1).title_p_acad_d ///
 	ib(2).female_lag##ib(0).title_person_dummy ib(2).female_lag##ib(2).first_female ib(2).female_lag##ib(1).first_p_acad ///
 	ib(2).female_lag##ib(0).first_person_dummy ib(2).female_lag##c.group_p_acad_d ib(2).female_lag##c.group_person_d ///
